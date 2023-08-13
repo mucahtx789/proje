@@ -1,0 +1,31 @@
+﻿
+
+        <a id="adListLink"  asp-action="_AdListPartial" data-ajax="true" data-ajax-method="get" data-ajax-update="#panel" class="btn btn-primary btn-sm">Yenile</a>
+        
+
+
+
+<div class="row mb-3">
+    <div class="col">
+        <div id="panel">
+        </div>
+    </div>
+</div>
+<div id="panel2" class="modal fade" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="panel2Content">
+        </div>
+  </div>
+</div>
+
+</div>
+
+
+@section Scripts{
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        $(function () {
+            adListLink.click();
+        });
+    </script>
+}

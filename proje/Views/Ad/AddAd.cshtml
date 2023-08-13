@@ -1,0 +1,220 @@
+﻿@model AdViewModel
+
+<body onload="panelClose()" >
+
+<div class="row">
+    <div class="col-4 offset-3">
+        <h1>İlan Ekleme</h1>
+        <form method="post">
+                <div class="formcontainer">
+                    <div class="container">
+                <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+            <div class="form-group mb-3">
+                <label asp-for="Title" class="form-label">Başlık</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Properties" class="form-label">Özellikler</label>
+                <input asp-for="Properties" class="form-control" />
+                <span asp-validation-for="Properties" class="text-danger small"></span>
+            </div>
+
+
+            <div class="form-group mb-3">
+                <label asp-for="TextBody" class="form-label">İlan Detayları</label>
+                <input asp-for="TextBody"class="form-control"  />
+                <span asp-validation-for="TextBody" class="text-danger small"></span>
+            </div>
+            <!--İlan adresi-->
+
+            <div class="form-group mb-3">
+                <label asp-for="Province" class="form-label">Şehir</label>
+                <input asp-for="Province" class="form-control" />
+                <span asp-validation-for="Province" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="District" class="form-label">İlçe</label>
+                <input asp-for="District" class="form-control" />
+                <span asp-validation-for="District" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="AddressDetails" class="form-label">Adres</label>
+                    <input asp-for="AddressDetails" class="form-control" />
+                    <span asp-validation-for="AddressDetails" class="text-danger small"></span>
+            </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Price" class="form-label">Fiyat</label>
+                    <input asp-for="Price" value="0" type="number" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger small"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Size" class="form-label">Alan</label>
+                    <input asp-for="Size" value="0" type="number" class="form-control" />
+                    <span asp-validation-for="Size" class="text-danger small"></span>
+                </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="SalesType" class="form-label">Satış Türü </label>
+
+                <select id="satıstipi" asp-for="SalesType" onchange="myFunction()" class="form-group mb-3">
+                    <option  asp-for="SalesType" value="Land">Arsa Satışı</option>
+                    <option asp-for="SalesType" value="RentHouse">Ev Kiralama</option>
+                    <option asp-for="SalesType" value="SalesHouse">Ev Satışı</option>
+                </select>
+
+            </div>
+            
+            
+
+            <div class="row mb-3">
+                 <div class="col">
+                     <div id="panel1" >
+                             <!--panel 1-->
+                        <div class="form-group mb-3">
+                                <label asp-for="Monthly" class="form-label">Kaç Aylığına kiraya verilecek</label>
+                                <input asp-for="Monthly" value="0" type="number" class="form-control" />
+                                <span asp-validation-for="Monthly" class="text-danger small"></span>
+                        </div>
+                        
+                       </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                 <div class="col">
+                       <div id="panel2">
+                          <!--panel 2-->
+                        <div class="form-group mb-3">
+                            <label asp-for="HouseAge" class="form-label">Binanın Yaşı</label>
+                                <input asp-for="HouseAge" value="0" type="number" class="form-control" />
+                            <span asp-validation-for="HouseAge" class="text-danger small"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="Renovation" class="form-label">Tadilat Durumu</label>
+                            <input asp-for="Renovation" class="form-control" />
+                            <span asp-validation-for="Renovation" class="text-danger small"></span>
+                        </div>
+                      
+                       </div>
+                 </div>
+            </div>
+            <div class="row mb-3">
+                 <div class="col">
+                        <div id="panel3">
+                        <div class="form-group mb-3">
+                                <div class="form-group mb-3">
+                                    <label asp-for="Floor" class="form-label">Kat</label>
+                                    <input asp-for="Floor" value="0" type="number" class="form-control" />
+                                    <span asp-validation-for="Floor" class="text-danger small"></span>
+                                </div>
+                            <label asp-for="GardenCheck" class="form-label">Bahçe </label>
+
+                            <select id="GardenCheck"  asp-for="GardenCheck" onchange="myFunction2()" class="form-group mb-3">
+                                <option asp-for="GardenCheck" value="Yes">Var</option>
+                                <option asp-for="GardenCheck" value="No">Yok</option>
+                            </select>
+
+                        </div>
+                        </div>
+                 </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <div id="panel4">
+                        <div class="form-group mb-3">
+                            <label asp-for="GardenSize" class="form-label">Bahçe Büyüklüğü</label>
+                                <input asp-for="GardenSize" value="0" type="number" class="form-control" />
+                            <span asp-validation-for="GardenSize" class="text-danger small"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="GardenProperties" class="form-label">Bahçe Durumu</label>
+                            <input asp-for="GardenProperties" class="form-control" />
+                            <span asp-validation-for="GardenProperties" class="text-danger small"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="PoolSize" class="form-label">Varsa havuz büyüklüğü</label>
+                                <input asp-for="PoolSize" value="0" type="number" class="form-control" />
+                            <span asp-validation-for="PoolSize" class="text-danger small"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary ">İlan Ekle</button>
+            </div>
+            <div class="text-success">  @ViewBag.message </div>
+                <div class="text-success">  @ViewBag.message2 </div>
+           </div>
+         </div>
+        </form>
+
+    </div>
+</div>
+</body>
+<script>
+
+    function myFunction() {
+        var x = document.getElementById("satıstipi").value;
+        if (x == "Land") { panelClose() }
+        if (x == "RentHouse") { panel1open(); }
+        if (x == "SalesHouse") { panel2open(); }
+        
+
+    }
+    function myFunction2() {
+        var x = document.getElementById("GardenCheck").value;
+        if (x == "Yes") { panel4open() }
+        if (x == "No") { panel4close(); }
+
+
+    }
+    function panel1open()
+    {
+        document.getElementById("panel1").style.display = "block";
+        document.getElementById("panel2").style.display = "none";
+         document.getElementById("GardenCheck").value="Yes"
+            document.getElementById("panel3").style.display = "block";
+            document.getElementById("panel4").style.display = "block";
+        
+        
+    }
+    function panel2open() {
+        document.getElementById("panel1").style.display = "none";
+        document.getElementById("panel2").style.display = "block";
+            document.getElementById("GardenCheck").value = "Yes"
+        document.getElementById("panel3").style.display = "block";
+        document.getElementById("panel4").style.display = "block";
+
+    }
+    function panelClose()
+    {
+        document.getElementById("panel1").style.display = "none";
+        document.getElementById("panel2").style.display = "none";
+        document.getElementById("panel3").style.display = "none";
+        document.getElementById("panel4").style.display = "none";
+        document.getElementById("GardenCheck").value = "No"
+    }
+
+    function panel4open() {
+        document.getElementById("panel4").style.display = "block";
+
+    }
+    function panel4close() {
+        document.getElementById("panel4").style.display = "none";
+
+
+    }
+</script>
+
+  
+     
+<link href="~/css/form.css" rel="stylesheet" />
+
+
+

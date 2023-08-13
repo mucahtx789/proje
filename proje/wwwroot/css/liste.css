@@ -1,0 +1,24 @@
+﻿table {
+    border-radius: 6px;
+    overflow: hidden;
+    max-width: 800px;
+    width: 100%;
+    background-color: #00ffff;
+
+}
+
+thead {
+    background-color: coral;
+}
+
+tr:hover {
+    background-color: antiquewhite;
+}
+
+td {
+    text-align: center;
+}
+
+th {
+    text-align: center;
+}

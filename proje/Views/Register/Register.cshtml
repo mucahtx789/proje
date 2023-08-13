@@ -1,0 +1,68 @@
+﻿@model RegisterViewModel
+
+<div class="row">
+    <div class="col-4 offset-3">
+        <h1>Kayıt</h1>
+        <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+        <form  method="post">
+            <div class="formcontainer">
+                <div class="container">
+
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="form-label">Ad</label>
+                <input asp-for="Name" class="form-control" placeholder="Adınız" />
+                <span asp-validation-for="Name" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="lastName" class="form-label">Soyad</label>
+                <input asp-for="lastName" class="form-control" placeholder="Soyadınız" />
+                <span asp-validation-for="lastName" class="text-danger small"></span>
+            </div>
+
+
+            <div class="form-group mb-3">
+                <label asp-for="Email" class="form-label">Mail adresi</label>
+                <input asp-for="Email" type="email" class="form-control" placeholder="örnekMail@gmail.com" />
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Password" class="form-label">Şifre</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Ş1fRe" />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Password2" class="form-label">Şifre tekrar giriniz</label>
+                <input asp-for="Password2" type="password" class="form-control" placeholder="Ş1fRe" />
+                <span asp-validation-for="Password2" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Telephone" class="form-label">Telefon</label>
+                <input asp-for="Telephone" class="form-control" placeholder="111 11 11" />
+                <span asp-validation-for="Telephone" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Role" class="form-label">Kayıt Amacınız </label>
+
+                <select asp-for="Role" class="form-group mb-3">
+                    <option asp-for="Role" value="Seller">Satıcı</option>
+                    <option asp-for="Role" value="Customer">Alıcı</option>
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <button type="submit" >Kayıt Ol</button>
+            </div>
+            <div class="text-success">  @ViewBag.message </div>
+            </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<link href="~/css/form.css" rel="stylesheet" />

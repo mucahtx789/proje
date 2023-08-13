@@ -1,0 +1,78 @@
+﻿
+
+<div class="offset-3">
+    
+            
+    <div class="col-6">
+
+        <div>
+            <h1>Profil Ayarları</h1>
+        </div>
+        <div asp-validation-summary="All" class="text-danger small"></div>
+        <form method="post" asp-action="ProfileChangeNameLastName">
+            <div class="formcontainer">
+                <div class="container">
+            <div class="form-group">
+
+                <label class="form-label small">Ad</label>
+                <div class="input-group mb-3">
+                    <input name="Name" type="text" class="form-control" placeholder="Tam ad" value="@ViewData["Name"]" />
+
+                </div>
+                <label class="form-label small">Soy Ad</label>
+                <div class="input-group mb-3">
+                    <input name="LastName" type="text" class="form-control" placeholder="Tam ad" value="@ViewData["LastName"]" />
+
+                </div>
+                <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>kaydet</button>
+                <div class="text-success"> @ViewBag.SaveCheck </div>
+            </div>
+            </div>
+            </div>
+            </form>
+        <form method="post" asp-action="ProfileChangePassword">
+            <div class="formcontainer">
+                <div class="container">
+            <div class="form-group">
+
+                <label class="form-label small">Şifre Değiştirme</label>
+                <div class="input-group">
+                    <input name="password" type="password" class="form-control" placeholder="şifre" />
+                    <button class="btn btn-secondary" type="submit">
+                                <i class="fa-solid fa-floppy-disk me-2">
+                        </i>kaydet
+                    </button>
+                </div>
+                <div class="text-success"> @ViewBag.SaveCheck2 </div>
+            </div>
+                </div>
+            </div>
+        </form>
+
+        @if (User.FindFirst("Role").Value == "Seller")
+        {
+            <a id="adListLink" asp-action="_AdListPartial" data-ajax="true" data-ajax-method="get" data-ajax-update="#panel" class="btn btn-primary btn-sm">Yenile</a>
+            <div class="row mb-3 formcontainer">
+                
+                <div class="col">
+                    <div id="panel" >
+                    </div>
+                 </div>
+                
+            </div>
+
+        }
+
+
+    </div>
+
+</div>
+@section Scripts{
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        $(function () {
+            adListLink.click();
+        });
+    </script>
+}
+<link href="~/css/form.css" rel="stylesheet" />

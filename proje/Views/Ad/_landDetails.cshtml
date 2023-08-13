@@ -1,0 +1,31 @@
+﻿@model List<AdViewModel>
+
+<div class="modal-header">
+    <h1 class="modal-title fs-5">Detay</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<table class="table table-hover table-sm">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Şehir</th>
+            <th>İlçe</th>
+            <th>Adres</th>
+            <th>Fiyat</th>
+            <th>Alan</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td></td>
+            <td>@Model[0].Province</td>
+            <td>@Model[0].District</td>
+            <td>@Model[0].AddressDetails</td>
+            <td>@Model[0].Price</td>
+            <td>@Model[0].Size</td>
+            <td class="text-end">
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Emlak </title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/proje.styles.css" asp-append-version="true" />
+    <link href="~/font-awesome/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav class="navMenu navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+              <div class="container-fluid">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <a asp-controller="Home" asp-action="Index">Anasayfa</a>
+                 @if (User.Identity.IsAuthenticated)
+                        {
+                             @if (User.FindFirst("Role").Value == "Seller")
+                            {
+                             <a asp-controller="Profile" asp-action="Profile">Profil</a>
+                        <a asp-controller="Ad" asp-action="AddAd">İlan Ekleme</a>
+                            }
+                    <a asp-controller="Login" asp-action="LoginOut">Oturumdan Çık</a>
+                        }
+                else{
+
+                    <a asp-controller="Register" asp-action="Register">Kayıt Ol</a>
+                    <a asp-controller="Login" asp-action="Login">Oturum Aç</a>
+                    
+                }
+                <a asp-controller="Admin" asp-action="Index">Admin</a>
+                <a asp-controller="Ad" asp-action="AdList">İlan Listesi</a>
+                <div class="dot"></div>
+               </div>
+            </div>
+            </nav>
+    </header>
+    <div class="container altakal">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <link href="~/css/deneme.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <link href="~/css/liste.css" rel="stylesheet" />
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
